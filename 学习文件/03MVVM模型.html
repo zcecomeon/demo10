@@ -9,17 +9,24 @@
 </head>
 <body>
     <div id="root">
-
+        <h1>测试1：{{$options}}</h1>
+        <h1>测试2：{{$emit}}</h1>
+        <h1>测试3：{{_c.length}}</h1>
     </div>
-
     <script>
-        new Vue({
-            el:'root',
+        /*
+        通过这个实例，我们分析一下Vue里面的MVVM模型，在这个简单的demo里面，
+        Model就是data数据，View就是div容器，ViewModel就是Vue实例vm，以后我们创建Vue实例就用vm
+        */
+        const vm = new Vue({
+            el:'#root',
             data:{
-
+                name:'张重恩',
+                address:'北京',
+                a:1
             }
         })
-
+        console.log(vm);//打印出vm实例我们看看实力里面有哪些东西
     </script>
 </body>
 </html>

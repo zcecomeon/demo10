@@ -6,7 +6,7 @@
 
 ```html
 <body>
-    
+  
     <ul id='list'></ul>
     <script type="text/javascript">
         let person = [
@@ -20,9 +20,10 @@
     });
     let list=document.getElementById('list')
     list.innerHTML = htmlStr
-    </script>
+    </script>  
 </body>
 ```
+
 
 **用Vue如何解决**
 
@@ -51,7 +52,7 @@
 </body>
 ```
 
-**注意：** <font color='red' size='3.5'>Vue实例和容器必须一一对应</font>
+**注意：** `<font color='red' size='3.5'>`Vue实例和容器必须一一对应`</font>`
 
 1、想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象
 
@@ -67,8 +68,6 @@
 
 7、一旦data中的数据发生改变，那么模板中用到该数据的地方也会自动更新
 
-
-
 - Vue插值语法
   1、功能：用于解析标签体内容
   2、{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性
@@ -81,7 +80,7 @@
           </h1>
           <hr/>
       </div>
-      
+
       <script>
       	new Vue({
               el:'#root',
@@ -92,10 +91,7 @@
       </script>
   </body>
   ```
-
-  
-
-- 指令语法 
+- 指令语法
   1、功能：用于解析标签（包括：标签属性，标签体内容，绑定事件......）
   2、用法和简写：v-bind:href="xxx"或简写成:href="xxx"，xxx同样要写成js表达式，且可以直接读取到data中的所有属性
 
@@ -126,68 +122,67 @@
       </script>
   </body>
   ```
-
--   多级结构
+- 多级结构
   仍然看上面的代码示例，有name1和name2，我们来通过多级结构进行区分
 
-  ```html
-  <body>
-      <!--  -->
-      <div id="root">
-          <h1>1、{{name}}</h1>
-          <hr>
-          <h1>1、{{school.name}}</h1>
-          <a :href=url1>点我进入时光荒凉了来时路的博客主页</a>
-          <!-- 指令语法的两种方式 v-bind:会将标签体里的内容当表达式进行解析，否则标签体的内容就是字符串，而v-bind:的简写就是: -->
-          <a v-bind:href=url2>点我百度</a>
-          <hr>
-      </div>
-      <script type="text/javascript">
-          Vue.config.productionTip = false//阻止Vue在启动时产生生产提示
-          //创建Vue实例
-          new Vue({
-              el:'#root',
-              data:{
-                  name:'插值语法',
-                  school:{//使用多级结构解决重名问题
-                      name:"指令语法",
-                      url1:"http://blog.zhangchongen.cn/",
-                      url2:"https://www.baidu.com/"
-                  }
-                  
-              }
-          })
-      </script>
-  </body>
-  ```
+```html
+<body>
+    <!--  -->
+    <div id="root">
+        <h1>1、{{name}}</h1>
+        <hr>
+        <h1>1、{{school.name}}</h1>
+        <a :href=url1>点我进入时光荒凉了来时路的博客主页</a>
+        <!-- 指令语法的两种方式 v-bind:会将标签体里的内容当表达式进行解析，否则标签体的内容就是字符串，而v-bind:的简写就是: -->
+        <a v-bind:href=url2>点我百度</a>
+        <hr>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false//阻止Vue在启动时产生生产提示
+        //创建Vue实例
+        new Vue({
+            el:'#root',
+            data:{
+                name:'插值语法',
+                school:{//使用多级结构解决重名问题
+                    name:"指令语法",
+                    url1:"http://blog.zhangchongen.cn/",
+                    url2:"https://www.baidu.com/"
+                }
+              
+            }
+        })
+    </script>
+</body>
+```
 
--  数据绑定
+- 数据绑定
   1、单向数据绑定(v-bind)：数据只能从data流向页面
   2、双向数据绑定(v-model)：数据双向流动
   3、注意：双向绑定一般都应用在表单类元素上（例如：input，select等）
 
-  4、v-model:value可以简写成v-model，因为v-model默认手机的就是value值
+4、v-model:value可以简写成v-model，因为v-model默认手机的就是value值
 
-  ```html
-  <body>
-      <div id="root">
-          单向数据绑定：<input type="text" v-bind:value="name"><br>
-          双向数据绑定：<input type="text" v-model:value="name"><br>
-          <!-- v-bind：的简写 -->
-          单向数据绑定：<input type="text" :value="name"><br>
-          <!-- v-model:的简写 -->
-          双向数据绑定：<input type="text" v-model ="name"><br>
-      </div>
-      <script>
-          new Vue({
-              el:"#root",
-              data:{
-                  name:"张重恩"
-              }
-          })
-      </script>
-  </body>
-  ```
+```html
+<body>
+    <div id="root">
+        单向数据绑定：<input type="text" v-bind:value="name"><br>
+        双向数据绑定：<input type="text" v-model:value="name"><br>
+        <!-- v-bind：的简写 -->
+        单向数据绑定：<input type="text" :value="name"><br>
+        <!-- v-model:的简写 -->
+        双向数据绑定：<input type="text" v-model ="name"><br>
+    </div>
+    <script>
+        new Vue({
+            el:"#root",
+            data:{
+                name:"张重恩"
+            }
+        })
+    </script>
+</body>
+```
 
 - **el和data的两种写法**
   **el两种写法：**
@@ -196,12 +191,12 @@
   new Vue({
       el:'#root',//第一种绑定容器的方法
       data:{
-          
+
       }
   })
   const v = new Vue({
       data:{
-          
+
       }
   }) 
   //mount:”挂载“的意思，意味着将容器挂载在这个Vue实例上
@@ -231,10 +226,7 @@
   	}
   })
   ```
-
-  
-
--  
+-
 
 学习Vue之前需要掌握的JavaScript基础知识有这些：
 
@@ -248,18 +240,10 @@
 
 ### 2、vue-cli
 
-
-
 ### 3、vue-router
-
-
 
 ### 4、vuex
 
-
-
 ### 5、element-ui
-
-
 
 ### 6、vue3
