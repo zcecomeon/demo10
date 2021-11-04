@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/vue.js"></script>
     <title>01demo</title>
 </head>
 <body>
-    <dir></dir>
-    <script>
+    <!--  -->
+    <div id="root">
+        <h1>1、{{name1}}</h1>
+        <hr>
+        <h1>1、{{name2}}</h1>
+        <a :href=url1>点我进入时光荒凉了来时路的博客主页</a>
+        <!-- 指令语法的两种方式 -->
+        <a v-bind:href=url2>点我百度</a>
+        <hr>
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false//阻止Vue在启动时产生生产提示
+        //创建Vue实例
+        new Vue({
+            el:'#root',
+            data:{
+                name1:'插值语法',
+                name2:"指令语法",
+                url1:"http://blog.zhangchongen.cn/",
+                url2:"https://www.baidu.com/"
+            }
+        })
+
 
     </script>
 </body>
