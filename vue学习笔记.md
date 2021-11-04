@@ -2,7 +2,7 @@
 
 ### 1、vue框架
 
-**原生JavaScript实现的一个遍历数据显示的实例**
+#### 原生JavaScript实现的一个遍历数据显示的实例
 
 ```html
 <body>
@@ -68,29 +68,30 @@
 
 7、一旦data中的数据发生改变，那么模板中用到该数据的地方也会自动更新
 
-- Vue插值语法
-  1、功能：用于解析标签体内容
-  2、{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性
+Vue插值语法
+1、功能：用于解析标签体内容
+2、{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性
 
-  ```html
-  <body>
-      <div id="root">
-          <h1>
-              你好，{{name}}
-          </h1>
-          <hr/>
-      </div>
+```html
+<body>
+    <div id="root">
+        <h1>
+            你好，{{name}}
+        </h1>
+        <hr/>
+    </div>
 
-      <script>
-      	new Vue({
-              el:'#root',
-              data:{
-                  name:'插值语法'
-              }
-          })
-      </script>
-  </body>
-  ```
+    <script>
+    	new Vue({
+            el:'#root',
+            data:{
+                name:'插值语法'
+            }
+        })
+    </script>
+</body>
+```
+
 - 指令语法
   1、功能：用于解析标签（包括：标签属性，标签体内容，绑定事件......）
   2、用法和简写：v-bind:href="xxx"或简写成:href="xxx"，xxx同样要写成js表达式，且可以直接读取到data中的所有属性
@@ -161,7 +162,7 @@
   2、双向数据绑定(v-model)：数据双向流动
   3、注意：双向绑定一般都应用在表单类元素上（例如：input，select等）
 
-4、v-model:value可以简写成v-model，因为v-model默认手机的就是value值
+4、v-model:value可以简写成v-model，因为v-model默认使用的就是value值
 
 ```html
 <body>
@@ -226,7 +227,13 @@
   	}
   })
   ```
--
+- MVVM模型
+  1、M：模型（Model）：data中的数据
+  2、V：视图（View）：模板代码
+  3、VM：视图模型（ViewModel）：Vue实例
+  **注意：**
+  1、data中所有的属性，最后都出现在了vm实例身上**（数据代理）**
+  2、vm身上所有的属性，及Vue原型上的所有属性，在Vue模板中都可以直接使用
 
 学习Vue之前需要掌握的JavaScript基础知识有这些：
 
