@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/vue.js"></script>
+    <title>04defineProperty</title>
+</head>
+<body>
+    <script>
+        let person={
+            name:'张重恩',
+            sex:'男'
+        }
+        //下面这种操作方式无法进行枚举，如果需要枚举，需要修改参数enumerable:true
+        Object.defineProperty(person,'age',{
+            value:18,
+            enumerable:true
+
+        })  
+        console.log(Object.keys(person));
+        for (let key in person) {
+            console.log('@',person[key]);
+        }
+        console
+    </script>
+</body>
+</html>
